@@ -1,0 +1,735 @@
+{
+	"info": {
+		"_postman_id": "9ca1bcea-c2e3-4b4d-8a32-601b850ad299",
+		"name": "AlkemyChallengeApiRest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18548647"
+	},
+	"item": [
+		{
+			"name": "crear usuario",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"jose\",\r\n    \"username\":\"jose123\",\r\n    \"email\":\"jose@gmail.com\",\r\n    \"password\":\"password\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener Token Login: ROLE_ADMIN",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreDeUsuario\":\"Admin\",\r\n    \"password\":\"password\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener Token Login : ROLE_USER",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreDeUsuario\":\"jose123\",\r\n    \"password\":\"password\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener todas las peliculas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxQGdtYWlsLmNvbSIsImlhdCI6MTY1ODYxMjQ0NywiZXhwIjoxNjU5MjE3MjQ3fQ.43HZzQB3YoL_aIOxT_FJxmyZUYyflxXcfCLp1Dqh78rzhNm055ySL53agLSAychsjXZbWczf638RCwAqx5KHXg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener peliculas de forma ascendente",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb3NlQGdtYWlsLmNvbSIsImlhdCI6MTY1ODYxMzcwNCwiZXhwIjoxNjU5MjE4NTA0fQ.QF-lAq44EWb9sTY8j2Ac776u34GjvW3e4LW8G3ZCnFoNnFdAJi2CgMFgasDX0jezc1yF3De2NVWut6Q2QFpuZQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/movies/order?orden=ASC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						"order"
+					],
+					"query": [
+						{
+							"key": "orden",
+							"value": "ASC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ordenar peliculas de forma descendente",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxQGdtYWlsLmNvbSIsImlhdCI6MTY1ODYxMzQyOSwiZXhwIjoxNjU5MjE4MjI5fQ.zjHOlJx2HQghFWFTWGaDdy3cSYsIMbGSR8SKzHqTRpedGlRNftvTLiJa1iaTbhkwUAqGAqcMIQAekTGUbMYvsw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movies/order?orden=DESC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						"order"
+					],
+					"query": [
+						{
+							"key": "orden",
+							"value": "DESC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crear pelicula sin personajes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxQGdtYWlsLmNvbSIsImlhdCI6MTY1ODYxMzQyOSwiZXhwIjoxNjU5MjE4MjI5fQ.zjHOlJx2HQghFWFTWGaDdy3cSYsIMbGSR8SKzHqTRpedGlRNftvTLiJa1iaTbhkwUAqGAqcMIQAekTGUbMYvsw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\":\"Spider Man\",\r\n    \"fechaCreacion\":\"1995-06-12\",\r\n    \"calificacion\":10,\r\n    \"genero\":\"accion\",\r\n    \"personajesAsociados\":\r\n        [\r\n\r\n    ]\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movies/newMovie",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						"newMovie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crear personaje sin peliculas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxQGdtYWlsLmNvbSIsImlhdCI6MTY1ODU1NTk2OCwiZXhwIjoxNjU5MTYwNzY4fQ.5dvCTulACxDQ3XONw5s482v9BX-d57-LBaoz4wORsfddjBLiDppNZihC1qI74KFsljishxm_dGDueefND_ud1w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"nombre\":\"Thor\",    \r\n\"edad\":30,\r\n\"peso\":100,\r\n\"historia\":\"El es Thor, el hombre del martillo\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/characters/newCharacter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"characters",
+						"newCharacter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "agregar personaje a pelicula",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxQGdtYWlsLmNvbSIsImlhdCI6MTY1ODU1NTk2OCwiZXhwIjoxNjU5MTYwNzY4fQ.5dvCTulACxDQ3XONw5s482v9BX-d57-LBaoz4wORsfddjBLiDppNZihC1qI74KFsljishxm_dGDueefND_ud1w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"nombre\":\"Thor\",    \r\n\"edad\":30,\r\n\"peso\":100,\r\n\"historia\":\"El es Thor, el hombre del martillo\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movies/1/characters/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						"1",
+						"characters",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eliminar personaje a pelicula",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb3NlQGdtYWlsLmNvbSIsImlhdCI6MTY1ODYxMzcwNCwiZXhwIjoxNjU5MjE4NTA0fQ.QF-lAq44EWb9sTY8j2Ac776u34GjvW3e4LW8G3ZCnFoNnFdAJi2CgMFgasDX0jezc1yF3De2NVWut6Q2QFpuZQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"nombre\":\"Thor\",    \r\n\"edad\":30,\r\n\"peso\":100,\r\n\"historia\":\"El es Thor, el hombre del martillo\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movies/1/characters/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						"1",
+						"characters",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crear genero",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxQGdtYWlsLmNvbSIsImlhdCI6MTY1ODU1NTk2OCwiZXhwIjoxNjU5MTYwNzY4fQ.5dvCTulACxDQ3XONw5s482v9BX-d57-LBaoz4wORsfddjBLiDppNZihC1qI74KFsljishxm_dGDueefND_ud1w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"genero\":\"comedia\"\r\n    \r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/generos/newGeneros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"generos",
+						"newGeneros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener personajes por edad",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxQGdtYWlsLmNvbSIsImlhdCI6MTY1ODYxMzk0NiwiZXhwIjoxNjU5MjE4NzQ2fQ.FdxeQfdjgqSPuEfvq3yCNJk5RdivnQHgd0mYl3W6ObbU75mB0jT-IzophUhSnobuIDO8SbfJt4YGtarp5F1Beg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreDeUsuario\":\"jose123\",\r\n    \"password\":\"password\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/characters/age?age=30",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"characters",
+						"age"
+					],
+					"query": [
+						{
+							"key": "age",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener personajes por pelicula",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxQGdtYWlsLmNvbSIsImlhdCI6MTY1ODYxMzk0NiwiZXhwIjoxNjU5MjE4NzQ2fQ.FdxeQfdjgqSPuEfvq3yCNJk5RdivnQHgd0mYl3W6ObbU75mB0jT-IzophUhSnobuIDO8SbfJt4YGtarp5F1Beg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/characters/movies?idMovie=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"characters",
+						"movies"
+					],
+					"query": [
+						{
+							"key": "idMovie",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eliminar personaje",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxQGdtYWlsLmNvbSIsImlhdCI6MTY1ODYxMzk0NiwiZXhwIjoxNjU5MjE4NzQ2fQ.FdxeQfdjgqSPuEfvq3yCNJk5RdivnQHgd0mYl3W6ObbU75mB0jT-IzophUhSnobuIDO8SbfJt4YGtarp5F1Beg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/characters/delete/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"characters",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modificar personaje",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxQGdtYWlsLmNvbSIsImlhdCI6MTY1ODYxMzk0NiwiZXhwIjoxNjU5MjE4NzQ2fQ.FdxeQfdjgqSPuEfvq3yCNJk5RdivnQHgd0mYl3W6ObbU75mB0jT-IzophUhSnobuIDO8SbfJt4YGtarp5F1Beg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"nombre\":\"Thor\",    \r\n\"edad\":20,\r\n\"peso\":90,\r\n\"historia\":\"El es Thor, el hombre del martillo, hijo de Zeus\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/characters/update/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"characters",
+						"update",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modificar pelicula",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxQGdtYWlsLmNvbSIsImlhdCI6MTY1ODYxMzk0NiwiZXhwIjoxNjU5MjE4NzQ2fQ.FdxeQfdjgqSPuEfvq3yCNJk5RdivnQHgd0mYl3W6ObbU75mB0jT-IzophUhSnobuIDO8SbfJt4YGtarp5F1Beg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\":\"Thor 2\",\r\n    \"fechaCreacion\":\"1995-06-12\",\r\n    \"calificacion\":9,\r\n    \"genero\":\"accion\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movies/update/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eliminar pelicula",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxQGdtYWlsLmNvbSIsImlhdCI6MTY1ODYxMzk0NiwiZXhwIjoxNjU5MjE4NzQ2fQ.FdxeQfdjgqSPuEfvq3yCNJk5RdivnQHgd0mYl3W6ObbU75mB0jT-IzophUhSnobuIDO8SbfJt4YGtarp5F1Beg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/movies/delete/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener peliculas por genero",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxQGdtYWlsLmNvbSIsImlhdCI6MTY1ODYxMzk0NiwiZXhwIjoxNjU5MjE4NzQ2fQ.FdxeQfdjgqSPuEfvq3yCNJk5RdivnQHgd0mYl3W6ObbU75mB0jT-IzophUhSnobuIDO8SbfJt4YGtarp5F1Beg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/movies/genre?idGenre=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						"genre"
+					],
+					"query": [
+						{
+							"key": "idGenre",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener serie o pelicula por nombre",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxQGdtYWlsLmNvbSIsImlhdCI6MTY1ODYxMzk0NiwiZXhwIjoxNjU5MjE4NzQ2fQ.FdxeQfdjgqSPuEfvq3yCNJk5RdivnQHgd0mYl3W6ObbU75mB0jT-IzophUhSnobuIDO8SbfJt4YGtarp5F1Beg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/movies/name?nombre=Thor 2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						"name"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "Thor 2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
