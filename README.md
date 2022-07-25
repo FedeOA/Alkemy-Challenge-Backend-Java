@@ -6,9 +6,9 @@
 3. Crear los roles y el usuario admin con el siguiente script:
 
 
-insert into rol values (1,'ROLE_ADMIN');.
-insert into rol values (2,'ROLE_USER');.
-insert into usuario values (1,'1@gmail.com','uno','$2a$10$pwHaffQwuUBLM/BvcSgOHuieZz96/pcCeMeuvlEPMIxCRfpuqBqye','Admin');.
+insert into rol values (1,'ROLE_ADMIN')
+insert into rol values (2,'ROLE_USER')
+insert into usuario values (1,'1@gmail.com','uno','$2a$10$pwHaffQwuUBLM/BvcSgOHuieZz96/pcCeMeuvlEPMIxCRfpuqBqye','Admin')
 
 
 usuario admin = Admin
