@@ -12,9 +12,14 @@ insert into rol values (2,'ROLE_USER');
 
 insert into usuario values (1,'1@gmail.com','uno','$2a$10$pwHaffQwuUBLM/BvcSgOHuieZz96/pcCeMeuvlEPMIxCRfpuqBqye','Admin');
 
+#Nombre de usuario y password
 
 usuario admin = Admin
+
 password= password
+
+
+
 
 Ahora tenemos el usuario administrador , que tendrá acceso a todas las funcionalidades de la app
 
