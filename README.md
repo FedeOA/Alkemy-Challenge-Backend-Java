@@ -1,8 +1,8 @@
 # Alkemy-Challenge-Backend-Java
 
 # Indicaciones :
-1. Crear la base de datos con el nombre de : alkemyapi
-2. Correr la aplicacion para crear la base de datos con las clases
+1. Crear la base de datos con el nombre de : alkemyapi.
+2. Correr la aplicacion para crear las clases con sus relaciones.
 3. Crear los roles y el usuario admin con el siguiente script:
 
 --script--
